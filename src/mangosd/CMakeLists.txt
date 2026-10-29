@@ -142,6 +142,8 @@ endif()
 # Define ENABLE_PLAYERBOTS if need
 if (BUILD_PLAYERBOTS)
   add_definitions(-DENABLE_PLAYERBOTS)
+  configure_file(${CMAKE_SOURCE_DIR}/src/modules/PlayerBots/playerbot/aiplayerbot.conf.dist.in ${CMAKE_CURRENT_BINARY_DIR}/aiplayerbot.conf.dist)
+  install(FILES ${CMAKE_CURRENT_BINARY_DIR}/aiplayerbot.conf.dist DESTINATION ${CONF_DIR})
 endif()
 
 if(MSVC)
